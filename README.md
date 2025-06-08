@@ -26,4 +26,17 @@ Quick Start Summary:
 4. Send /analyze to your Telegram bot
 5. Receive ICT bias alerts every 4 hours
 
+🚀 Setup (5 minutes)
+
+# Clone/download the code
+git clone <repository_url>
+cd ict-trading-bot
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure
+cp config.json.example config.json
+# Edit config.json with your API keys
+
 The system will analyze market structure, detect liquidity zones, identify order blocks, and provide high-probability bias signals based on ICT methodology - all automated and delivered directly to your Telegram!
