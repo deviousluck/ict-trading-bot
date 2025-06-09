@@ -8,7 +8,21 @@ from datetime import datetime, timedelta
 import pandas as pd
 import numpy as np
 
+TELEGRAM_COMMANDS = {
+    '/analyze': 'Run ICT Analysis Now',
+    '/status': 'Show Bot Status', 
+    '/settings': 'View Current Settings',
+    '/help': 'Show Available Commands'
+}
+
 class ICTTradingBot:
+    async def handle_telegram_command(self, command):
+        if command == '/analyze':
+            await self.run_analysis(SYMBOLS)
+        elif command == '/status':
+            status_msg = f"🤖 ICT Bot Status: Online\n📊 Symbols: {', '.join(SYMBOLS)}\n⏰ Last Run: {self.last_run_time}"
+            await self.send_telegram_message(status_msg)
+
     def __init__(self, config):
         self.config = config
         self.api_key = config['twelve_data_api']
