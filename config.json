@@ -11,7 +11,7 @@
         "email_password": "app_password"
     },
     "trading": {
-        "symbols": ["GBPUSD", "EURUSD", "GBPJPY"],
+        "symbols": ["GBPUSD", "EURUSD", "USDJPY", "AUDUSD"],
         "timeframes": {
             "daily": "1day",
             "h4": "4h", 
