@@ -7,6 +7,22 @@ import aiohttp
 from datetime import datetime, timedelta
 import pandas as pd
 import numpy as np
+import os
+
+config = {
+    "api_keys": {
+        "twelve_data": os.getenv("TWELVE_DATA_API"),
+        "telegram_bot_token": os.getenv("TELEGRAM_BOT_TOKEN"),
+        "screenshot_api": os.getenv("SCREENSHOT_API")
+    },
+    "notifications": {
+        "telegram_chat_id": os.getenv("TELEGRAM_CHAT_ID"),
+        "email_to": os.getenv("EMAIL_TO"),
+        "email_from": os.getenv("EMAIL_FROM"),
+        "email_password": os.getenv("EMAIL_PASSWORD")
+    },
+}
+
 
 TELEGRAM_COMMANDS = {
     '/analyze': 'Run ICT Analysis Now',
