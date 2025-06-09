@@ -1,30 +1,30 @@
 {
-    "api_keys": {
-        "twelve_data": "your_api_key_here",
-        "telegram_bot_token": "your_bot_token_here",
-        "screenshot_api": "your_screenshot_token_here"
+  "api_keys": {
+    "twelve_data": "__ENV__", 
+    "telegram_bot_token": "__ENV__",
+    "screenshot_api": "__ENV__"
+  },
+  "notifications": {
+    "telegram_chat_id": "__ENV__",
+    "email_to": "__ENV__",
+    "email_from": "__ENV__",
+    "email_password": "__ENV__"
+  },
+  "trading": {
+    "symbols": ["GBPUSD", "EURUSD", "USDJPY", "AUDUSD"],
+    "timeframes": {
+      "daily": "1day",
+      "h4": "4h", 
+      "h1": "1h"
     },
-    "notifications": {
-        "telegram_chat_id": "your_chat_id",
-        "email_to": "your_email@gmail.com",
-        "email_from": "bot_email@gmail.com",
-        "email_password": "app_password"
-    },
-    "trading": {
-        "symbols": ["GBPUSD", "EURUSD", "USDJPY", "AUDUSD"],
-        "timeframes": {
-            "daily": "1day",
-            "h4": "4h", 
-            "h1": "1h"
-        },
-        "bias_threshold": 3.0,
-        "risk_percent": 1.0
-    },
-    "schedule": {
-        "analysis_interval_hours": 4,
-        "active_sessions_only": true,
-        "weekend_analysis": false
-    },
-    "advanced": {},
-    "debug": false
+    "bias_threshold": 3.0,
+    "risk_percent": 1.0
+  },
+  "schedule": {
+    "analysis_interval_hours": 4,
+    "active_sessions_only": true,
+    "weekend_analysis": false
+  },
+  "advanced": {},
+  "debug": false
 }
