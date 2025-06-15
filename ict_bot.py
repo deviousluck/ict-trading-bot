@@ -45,34 +45,22 @@ class ICTTradingBot:
         self.telegram_token = config['telegram_bot_token']
         self.chat_id = config['telegram_chat_id']
         
-    async def fetch_market_data(self, symbol, interval, outputsize=100):
-        """
-        Fetch OHLC data from TwelveData (Free: 800 calls/day)
-        """
-        url = f"https://api.twelvedata.com/time_series"
-        params = {
-            'symbol': symbol,
-            'interval': interval,
-            'outputsize': outputsize,
-            'apikey': self.api_key
-        }
-        
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url, params=params) as response:
-                data = await response.json()
-                
-                if 'values' not in data:
-                    return None
-                    
-                df = pd.DataFrame(data['values'])
-                df['datetime'] = pd.to_datetime(df['datetime'])
-                df = df.set_index('datetime')
-                
-                # Convert to numeric
-                for col in ['open', 'high', 'low', 'close']:
-                    df[col] = pd.to_numeric(df[col])
-                    
-                return df.sort_index()
+async def fetch_market_data(self, symbol, interval, outputsize=100):
+    url = f"https://api.twelvedata.com/time_series"
+    params = {
+        'symbol': symbol,
+        'interval': interval,
+        'outputsize': outputsize,
+        'apikey': self.api_key
+    }
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url, params=params) as response:
+            data = await response.json()
+            print(f"📡 API Response for {symbol}: {data}")  # <== ADD THIS LINE
+
+            if 'values' not in data:
+                return None
     
     def detect_liquidity_zones(self, df, lookback=20):
         """
